@@ -1,0 +1,6 @@
+{
+  "name": "Study Dost AI",
+  "description": "Mobile-friendly AI study companion for students in Classes 1 to 12, offering simple step-by-step explanations in English and Hindi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
