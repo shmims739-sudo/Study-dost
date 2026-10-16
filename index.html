@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Study Dost AI</title>
+    <meta name="description" content="Mobile-friendly AI study companion for students in Classes 1 to 12, offering simple step-by-step explanations in English and Hindi." />
+    
+    <!-- PWA Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- PWA Icons & Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Mobile Browser & iOS Safari Capabilities -->
+    <meta name="theme-color" content="#ea580c" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Study Dost" />
+
+    <!-- Monetag Verification -->
+    <meta name="monetag" content="00a815bda537912da4c6ba862ad1b3ae" />
+
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:title" content="Study Dost AI" />
+    <meta property="og:description" content="Mobile-friendly AI study companion for students in Classes 1 to 12, offering simple step-by-step explanations in English and Hindi." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&family=Yantramanav:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Start.io Banner Ad Container Styling -->
+    <style>
+      #startapp-ad-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        margin: 0 auto;
+        max-width: 480px;
+        pointer-events: auto;
+      }
+      #startapp-ad-container:empty {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-amber-50/40 text-slate-800 antialiased selection:bg-amber-200">
+    <div id="root"></div>
+
+    <!-- Official Start.io Web Ad Container (Empty container populated by Start.io SDK) -->
+    <div id="startapp-ad-container"></div>
+
+    <!-- StartApp Integration -->
+    <script type="text/javascript">
+      var startAppParam = {
+        appId: "209789534"
+      };
+    </script>
+    <script type="text/javascript" src="https://www.startapp.com/js/startapp-3.0.0.js"></script>
+    <script type="text/javascript">
+      // Official Start.io JavaScript SDK Call to fetch and display actual live ads
+      (function() {
+        function fetchAndDisplayStartAppAd() {
+          var containerId = 'startapp-ad-container';
+          var container = document.getElementById(containerId);
+          if (!container) return;
+
+          try {
+            if (typeof window.StartApp !== 'undefined') {
+              if (typeof window.StartApp.init === 'function') {
+                window.StartApp.init(startAppParam);
+              }
+              if (typeof window.StartApp.showBanner === 'function') {
+                window.StartApp.showBanner(containerId);
+              } else if (typeof window.StartApp.loadBanner === 'function') {
+                window.StartApp.loadBanner(containerId);
+              } else if (typeof window.StartApp.showAd === 'function') {
+                window.StartApp.showAd('banner', containerId);
+              }
+            } else if (window.startAppParam) {
+              if (typeof window.startAppParam.showBanner === 'function') {
+                window.startAppParam.showBanner(containerId);
+              } else if (typeof window.startAppParam.showAd === 'function') {
+                window.startAppParam.showAd(containerId);
+              }
+            }
+          } catch (err) {
+            console.warn('[Start.io] Ad display error:', err);
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', fetchAndDisplayStartAppAd);
+        } else {
+          fetchAndDisplayStartAppAd();
+        }
+      })();
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
